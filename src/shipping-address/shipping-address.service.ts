@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param, Body } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { create } from 'domain';
 import { SocketAddress } from 'net';
@@ -14,5 +14,17 @@ export class ShippingAddressService {
 
    findAll(): Promise<ShippingAddress[]> {
        return this.shippingAddressRepository.find();
+   }
+
+   findOne(@Param('id') id: string): Promise<ShippingAddress> {
+       return this.shippingAddressRepository.findOne(id);
+   }
+
+   async create(shippingAddress: ShippingAddress) {
+       return this.shippingAddressRepository.save(shippingAddress);
+   }
+
+   async update(@Body() shippingAddress: ShippingAddress) {
+       return this.shippingAddressRepository.save(shippingAddress);
    }
 }
