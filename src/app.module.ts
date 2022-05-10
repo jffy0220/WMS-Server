@@ -32,6 +32,10 @@ import { PurchaseOrderController } from './purchase-order/purchase-order.control
 import { PurchaseOrderService } from './purchase-order/purchase-order.service';
 import { PurchaseOrder } from './purchase-order/purchase-order.entity';
 import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
+import { PurchaseOrderLineItemsController } from './purchase-order-line-items/purchase-order-line-items.controller';
+import { PurchaseOrderLineItemsService } from './purchase-order-line-items/purchase-order-line-items.service';
+import { PurchaseOrderLineItemsModule } from './purchase-order-line-items/purchase-order-line-items.module';
+import { PurchaseOrderLineItems } from './purchase-order-line-items/purchase-order-line-items.entity';
 
 @Module({
   imports: [
@@ -42,7 +46,7 @@ import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems, PurchaseOrder],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems, PurchaseOrder, PurchaseOrderLineItems],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
@@ -53,7 +57,8 @@ import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
     BinModule,
     OrderModule,
     OrderLineItemsModule,
-    PurchaseOrderModule
+    PurchaseOrderModule,
+    PurchaseOrderLineItemsModule
   ],
   controllers: [AppController],
   providers: [AppService],
