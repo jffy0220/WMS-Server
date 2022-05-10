@@ -28,6 +28,10 @@ import { OrderLineItemsController } from './order-line-items/order-line-items.co
 import { OrderLineItemsService } from './order-line-items/order-line-items.service';
 import { OrderLineItemsModule } from './order-line-items/order-line-items.module';
 import { OrderLineItems } from './order-line-items/order-line-items.entity';
+import { PurchaseOrderController } from './purchase-order/purchase-order.controller';
+import { PurchaseOrderService } from './purchase-order/purchase-order.service';
+import { PurchaseOrder } from './purchase-order/purchase-order.entity';
+import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
 
 @Module({
   imports: [
@@ -38,7 +42,7 @@ import { OrderLineItems } from './order-line-items/order-line-items.entity';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems, PurchaseOrder],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
@@ -48,7 +52,8 @@ import { OrderLineItems } from './order-line-items/order-line-items.entity';
     WarehouseModule,
     BinModule,
     OrderModule,
-    OrderLineItemsModule
+    OrderLineItemsModule,
+    PurchaseOrderModule
   ],
   controllers: [AppController],
   providers: [AppService],
