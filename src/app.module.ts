@@ -8,6 +8,10 @@ import { BillingAddressModule } from './billing-address/billing-address.module';
 import { BillingAddress } from './billing-address/billing-address.entity';
 import { ItemModule } from './item/item.module';
 import { Item } from './item/item.entity';
+import { ItemDetailsController } from './item-details/item-details.controller';
+import { ItemDetailsService } from './item-details/item-details.service';
+import { ItemDetailsModule } from './item-details/item-details.module';
+import { ItemDetails } from './item-details/item-details.entity';
 
 @Module({
   imports: [
@@ -18,12 +22,13 @@ import { Item } from './item/item.entity';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
     BillingAddressModule,
-    ItemModule
+    ItemModule,
+    ItemDetailsModule
   ],
   controllers: [AppController],
   providers: [AppService],
