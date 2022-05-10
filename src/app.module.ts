@@ -24,6 +24,10 @@ import { OrderController } from './order/order.controller';
 import { OrderService } from './order/order.service';
 import { OrderModule } from './order/order.module';
 import { Order } from './order/order.entity';
+import { OrderLineItemsController } from './order-line-items/order-line-items.controller';
+import { OrderLineItemsService } from './order-line-items/order-line-items.service';
+import { OrderLineItemsModule } from './order-line-items/order-line-items.module';
+import { OrderLineItems } from './order-line-items/order-line-items.entity';
 
 @Module({
   imports: [
@@ -34,7 +38,7 @@ import { Order } from './order/order.entity';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
@@ -43,7 +47,8 @@ import { Order } from './order/order.entity';
     ItemDetailsModule,
     WarehouseModule,
     BinModule,
-    OrderModule
+    OrderModule,
+    OrderLineItemsModule
   ],
   controllers: [AppController],
   providers: [AppService],
