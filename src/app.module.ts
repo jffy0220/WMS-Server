@@ -20,6 +20,10 @@ import { BinController } from './bin/bin.controller';
 import { BinService } from './bin/bin.service';
 import { BinModule } from './bin/bin.module';
 import { Bin } from './bin/bin.entity';
+import { OrderController } from './order/order.controller';
+import { OrderService } from './order/order.service';
+import { OrderModule } from './order/order.module';
+import { Order } from './order/order.entity';
 
 @Module({
   imports: [
@@ -30,7 +34,7 @@ import { Bin } from './bin/bin.entity';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
@@ -38,7 +42,8 @@ import { Bin } from './bin/bin.entity';
     ItemModule,
     ItemDetailsModule,
     WarehouseModule,
-    BinModule
+    BinModule,
+    OrderModule
   ],
   controllers: [AppController],
   providers: [AppService],
