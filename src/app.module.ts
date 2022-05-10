@@ -12,6 +12,10 @@ import { ItemDetailsController } from './item-details/item-details.controller';
 import { ItemDetailsService } from './item-details/item-details.service';
 import { ItemDetailsModule } from './item-details/item-details.module';
 import { ItemDetails } from './item-details/item-details.entity';
+import { WarehouseController } from './warehouse/warehouse.controller';
+import { WarehouseService } from './warehouse/warehouse.service';
+import { WarehouseModule } from './warehouse/warehouse.module';
+import { Warehouse } from './warehouse/warehouse.entity';
 
 @Module({
   imports: [
@@ -22,13 +26,14 @@ import { ItemDetails } from './item-details/item-details.entity';
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
     BillingAddressModule,
     ItemModule,
-    ItemDetailsModule
+    ItemDetailsModule,
+    WarehouseModule
   ],
   controllers: [AppController],
   providers: [AppService],
