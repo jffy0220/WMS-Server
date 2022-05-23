@@ -8,34 +8,34 @@ import { BillingAddressModule } from './billing-address/billing-address.module';
 import { BillingAddress } from './billing-address/billing-address.entity';
 import { ItemModule } from './item/item.module';
 import { Item } from './item/item.entity';
-import { ItemDetailsController } from './item-details/item-details.controller';
-import { ItemDetailsService } from './item-details/item-details.service';
 import { ItemDetailsModule } from './item-details/item-details.module';
 import { ItemDetails } from './item-details/item-details.entity';
-import { WarehouseController } from './warehouse/warehouse.controller';
-import { WarehouseService } from './warehouse/warehouse.service';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { Warehouse } from './warehouse/warehouse.entity';
-import { BinController } from './bin/bin.controller';
-import { BinService } from './bin/bin.service';
 import { BinModule } from './bin/bin.module';
 import { Bin } from './bin/bin.entity';
-import { OrderController } from './order/order.controller';
-import { OrderService } from './order/order.service';
 import { OrderModule } from './order/order.module';
 import { Order } from './order/order.entity';
-import { OrderLineItemsController } from './order-line-items/order-line-items.controller';
-import { OrderLineItemsService } from './order-line-items/order-line-items.service';
 import { OrderLineItemsModule } from './order-line-items/order-line-items.module';
 import { OrderLineItems } from './order-line-items/order-line-items.entity';
-import { PurchaseOrderController } from './purchase-order/purchase-order.controller';
-import { PurchaseOrderService } from './purchase-order/purchase-order.service';
 import { PurchaseOrder } from './purchase-order/purchase-order.entity';
 import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
-import { PurchaseOrderLineItemsController } from './purchase-order-line-items/purchase-order-line-items.controller';
-import { PurchaseOrderLineItemsService } from './purchase-order-line-items/purchase-order-line-items.service';
 import { PurchaseOrderLineItemsModule } from './purchase-order-line-items/purchase-order-line-items.module';
 import { PurchaseOrderLineItems } from './purchase-order-line-items/purchase-order-line-items.entity';
+import { CustomerModule } from './customer/customer.module';
+import { Customer } from './customer/customer.entity';
+import { DepartmentModule } from './department/department.module';
+import { Department } from './department/department.entity';
+import { EmployeeModule } from './employee/employee.module';
+import { Employee } from './employee/employee.entity';
+import { ReturnsModule } from './returns/returns.module';
+import { Returns } from './returns/returns.entity';
+import { Role } from './role/role.entity';
+import { RoleModule } from './role/role.module';
+import { UsersModule } from './users/users.module';
+import { SubDepartmentModule } from './sub-department/sub-department.module';
+import { Users } from './users/users.entity';
+import { SubDepartment } from './sub-department/sub-department.entity';
 
 @Module({
   imports: [
@@ -46,7 +46,7 @@ import { PurchaseOrderLineItems } from './purchase-order-line-items/purchase-ord
       username: 'user',
       password: 'password',
       database: 'WMS',
-      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems, PurchaseOrder, PurchaseOrderLineItems],
+      entities: [ShippingAddress, BillingAddress, Item, ItemDetails, Warehouse, Bin, Order, OrderLineItems, PurchaseOrder, PurchaseOrderLineItems, Customer, Department, Employee, Returns, Role, Users, SubDepartment],
       synchronize: false // Do not use synchronize in production, otherwise you can lose data
     }),
     ShippingAddressModule,
@@ -58,7 +58,14 @@ import { PurchaseOrderLineItems } from './purchase-order-line-items/purchase-ord
     OrderModule,
     OrderLineItemsModule,
     PurchaseOrderModule,
-    PurchaseOrderLineItemsModule
+    PurchaseOrderLineItemsModule,
+    CustomerModule,
+    DepartmentModule,
+    EmployeeModule,
+    ReturnsModule,
+    RoleModule,
+    UsersModule,
+    SubDepartmentModule
   ],
   controllers: [AppController],
   providers: [AppService],
