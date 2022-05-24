@@ -19,7 +19,6 @@ export class ShippingAddressController {
 
     @Get(':id')
     async findOne(@Param() params): Promise<ShippingAddress> {
-        console.log(params.id);
         return this.shippingAddressService.findOne( params.id );
     }
 
