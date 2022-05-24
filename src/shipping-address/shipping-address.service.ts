@@ -16,8 +16,8 @@ export class ShippingAddressService {
        return this.shippingAddressRepository.find();
    }
 
-   findOne(@Param('id') id: string): Promise<ShippingAddress> {
-       return this.shippingAddressRepository.findOne(id);
+   findOne(id: number): Promise<ShippingAddress> {
+       return this.shippingAddressRepository.findOne({ id });
    }
 
    async create(shippingAddress: ShippingAddress) {

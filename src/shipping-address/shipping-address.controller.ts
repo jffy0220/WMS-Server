@@ -17,9 +17,10 @@ export class ShippingAddressController {
         return this.shippingAddressService.findAll()
     }
 
-    @Get()
-    async findOne(@Param('id') id: string): Promise<ShippingAddress> {
-        return this.shippingAddressService.findOne(id);
+    @Get(':id')
+    async findOne(@Param() params): Promise<ShippingAddress> {
+        console.log(params.id);
+        return this.shippingAddressService.findOne( params.id );
     }
 
     @Post()
